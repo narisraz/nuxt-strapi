@@ -1,8 +1,11 @@
 {
-  "name": "@nuxtjs/strapi",
-  "version": "1.9.0",
+  "name": "@narisraz/nuxt-strapi",
+  "version": "1.9.1",
   "description": "Strapi module for Nuxt",
-  "repository": "nuxt-modules/strapi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxt-modules/strapi.git"
+  },
   "license": "MIT",
   "exports": {
     ".": {
@@ -43,5 +46,14 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/nuxt-modules/strapi/issues"
+  },
+  "homepage": "https://github.com/nuxt-modules/strapi#readme",
+  "directories": {
+    "doc": "docs",
+    "example": "example"
+  },
+  "author": ""
 }

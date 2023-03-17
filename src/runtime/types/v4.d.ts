@@ -29,6 +29,7 @@ export interface Strapi4RequestParams {
   filters?: Record<string, unknown>
   publicationState?: 'live' | 'preview'
   locale?: StrapiLocale
+  headers?: object
 }
 
 export interface Strapi4ResponseData<T> {
