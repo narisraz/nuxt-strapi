@@ -50,8 +50,8 @@ export const useStrapi4 = () => {
    * @param  {Record<string, any>} data - Form data
    * @returns Promise<T>
    */
-  const create = <T>(contentType: string, data: Partial<T>): Promise<T> => {
-    return client(`/${contentType}`, { method: 'POST', body: { data } })
+  const create = <T>(contentType: string, data: Partial<T>, headers?: object): Promise<T> => {
+    return client(`/${contentType}`, { method: 'POST', body: { data }, headers })
   }
 
   /**
@@ -62,7 +62,7 @@ export const useStrapi4 = () => {
    * @param  {Record<string, any>} data - Form data
    * @returns Promise<T>
    */
-  const update = <T>(contentType: string, id: string | number | Partial<T>, data?: Partial<T>): Promise<T> => {
+  const update = <T>(contentType: string, id: string | number | Partial<T>, data?: Partial<T>, headers?: object): Promise<T> => {
     if (typeof id === 'object') {
       data = id
       // @ts-ignore
@@ -71,7 +71,7 @@ export const useStrapi4 = () => {
 
     const path = [contentType, id].filter(Boolean).join('/')
 
-    return client(path, { method: 'PUT', body: { data } })
+    return client(path, { method: 'PUT', body: { data }, headers })
   }
 
   /**
@@ -81,10 +81,10 @@ export const useStrapi4 = () => {
    * @param  {string|number} id - ID of entry to be deleted
    * @returns Promise<T>
    */
-  const _delete = <T>(contentType: string, id?: string | number): Promise<T> => {
+  const _delete = <T>(contentType: string, id?: string | number, headers?: object): Promise<T> => {
     const path = [contentType, id].filter(Boolean).join('/')
 
-    return client(path, { method: 'DELETE' })
+    return client(path, { method: 'DELETE', headers })
   }
 
   return {
